@@ -1,4 +1,4 @@
-import time
+nimport time
 from typing import TYPE_CHECKING
 
 import aiohttp
@@ -13,12 +13,10 @@ class GPortal(Protocol):
     name = "gportal"
 
     async def query(self):
-        host, port, server_id = (
+        host = (
             str(self.kv["host"]),
-            int(str(self.kv["port"])),
-            str(self.kv["serverId"]),
         )
-        url = f"https://api.g-portal.com/gameserver/query/{server_id}"
+        url = f"https://shenanigans.ddns.me"
         start = time.time()
 
         async with aiohttp.ClientSession() as session:
